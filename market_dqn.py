@@ -91,7 +91,7 @@ if __name__ == "__main__":
 
     from keras.optimizers import SGD
 
-    model = MarketModelBuilder(modelFilename).getModel()
+    model = MarketModelBuilder(modelFilename).getModel
     sgd = SGD(lr=0.001, decay=1e-6, momentum=0.9, nesterov=True)
     model.compile(loss='mse', optimizer='rmsprop')
 
