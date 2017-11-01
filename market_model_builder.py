@@ -14,7 +14,7 @@ class MarketPolicyGradientModelBuilder(AbstractModelBuilder):
         inputs = [B]
         merges = [b]
 
-        for i in xrange(1):
+        for i in range(1):
             S = Input(shape=[2, 60, 1])
             inputs.append(S)
 
@@ -70,7 +70,7 @@ class MarketModelBuilder(AbstractModelBuilder):
         inputs = [B]
         merges = [b]
 
-        for i in xrange(1):
+        for i in range(1):
             S = Input(shape=[2, 60, 1])
             inputs.append(S)
 

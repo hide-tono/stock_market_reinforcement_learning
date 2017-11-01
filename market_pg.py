@@ -33,7 +33,7 @@ class PolicyGradient:
         running_add = 0
         r = r.flatten()
 
-        for t in reversed(xrange(0, r.size)):
+        for t in reversed(range(0, r.size)):
             if r[t] != 0:
                 running_add = 0
 
@@ -47,7 +47,7 @@ class PolicyGradient:
         model = self.model
         avg_reward_sum = 0.
 
-        for e in xrange(max_episode):
+        for e in range(max_episode):
             env.reset()
             observation = env.reset()
             game_over = False
@@ -99,11 +99,11 @@ class PolicyGradient:
                 os.system("echo %s >> %s" % (toPrint, self.history_filename))
 
             dim = len(inputs[0])
-            inputs_ = [[] for i in xrange(dim)]
+            inputs_ = [[] for i in range(dim)]
             for obs in inputs:
                 for i, block in enumerate(obs):
                     inputs_[i].append(block[0])
-            inputs_ = [np.array(inputs_[i]) for i in xrange(dim)]
+            inputs_ = [np.array(inputs_[i]) for i in range(dim)]
 
             outputs_ = np.vstack(outputs)
             predicteds_ = np.vstack(predicteds)
