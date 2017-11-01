@@ -1,55 +1,55 @@
-# Stock Trading Market OpenAI Gym Environment with Deep Reinforcement Learning using Keras
+＃株式取引市場OpenAIジム環境とケラスを使った深層強化学習
 
-## Overview
+## 概要
 
-This project provides a general environment for stock market trading simulation using [OpenAI Gym](https://gym.openai.com/). 
-Training data is a close price of each day, which is downloaded from Google Finance, but you can apply any data if you want.
-Also, it contains simple Deep Q-learning and Policy Gradient from [Karpathy's post](http://karpathy.github.io/2016/05/31/rl/).
+このプロジェクトは、[OpenAI Gym](https://gym.openai.com/)を使用した株式市場取引シミュレーションの一般的な環境を提供します。
+トレーニングデータは、Google Financeからダウンロードした毎日の終値ですが、必要に応じて任意のデータを適用できます。
+また、[Karpathyの投稿](http://karpathy.github.io/2016/05/31/rl/)の簡単なDeep Q-LearningとPolicy Gradientが含まれています。
 
-In fact, the purpose of this project is not only providing a best RL solution for stock trading, but also building a general open environment for further research.  
-**So, please, manipulate the model architecture and features to get your own better solution.**
+実際、このプロジェクトの目的は、株式取引のための最高のRLソリューションを提供するだけでなく、さらなる研究のための一般的なオープン環境を構築することです。
+**したがって、モデルのアーキテクチャと機能を操作して、自分のより良いソリューションを手に入れてください。**
 
-## Requirements
+## 要件
 
-- Python2.7 or higher
-- Numpy
-- HDF5
-- Keras with Beckend (Theano or/and Tensorflow)
-- OpenAI Gym
+ - Python2.7以上
+ - Numpy
+ - HDF5
+ - Keras
+ - OpenAI Gym
 
-## Usage
+## 使用法
 
-Note that the most sample training data in this repo is Korean stock. 
-You may need to re-download your own training data to fit your purpose.
+このリポジトリのほとんどのサンプルトレーニングデータは韓国の銘柄です。
+目的に合ったトレーニングデータを再ダウンロードする必要があるかもしれません。
 
-After meet those requirements in above, you can begin the training both algorithms, Deep Q-learning and Policy Gradient.
+上記の要件を満たした後、Deep Q-learningとPolicy Gradientの両方のアルゴリズムのトレーニングを開始できます。
 
-Train Deep Q-learning:
+Deep Q-ラーニングで学習する：
 
-    $ python market_dqn.py <list filename> [model filename]
+    $ python market_dqn.py <リストファイル名> [モデルファイル名]
 
-Train Policy Gradient:
+Policy Gradientで学習する：
 
-	$ python market_pg.py <list filename> [model filename]
+    $ python market_pg.py <リストファイル名> [モデルファイル名]
 
-For example, you can do like this:
+例：
 
-	$ python market_pg.py ./kospi_10.csv pg.h5
+    $ python market_pg.py ./kospi_10.csv pg.h5
 
-Aware that the provided neural network architecture in this repo is too small to learn.
-So, it may under-fitting if you try to learn every stock data.
-It just fitted for 10 to 100 stock data for a few years. (I checked!!)  
-Thus you need to re-design your own architecture and   
-**let me know if you have better one!**
+このリポジトリの提供されたニューラルネットワークアーキテクチャは学習するには小さすぎます。
+あなたがすべての株価データを習得しようとすると、アンダーフィッティングになる可能性があります。
+数年間の10〜100銘柄の株式データでちょうどよくフィッティングできました。 （私がチェックしました！！）
+したがって、独自のアーキテクチャを再設計する必要があります。
+**あなたがより良いものを持っていたら私に教えてください！**
 
-Below is training curve for Top-10 KOSPI stock datas for 4 years using Policy Gradient.  
-![Training Curve](./pg_over_top_10.png)
+以下は、Policy Gradientを使用したトップ10のKOSPI株データの4年間のトレーニング曲線です。
+![トレーニングカーブ](./pg_over_top_10.png)
 
-## To do
-- Test environment to check overfitting.
-- Elaborate the PG's train interface.
+## TODO
+ - オーバーフィッティングをチェックするテスト環境。
+ -  PGの学習インターフェースを精緻化する。
 
-## Reference
+＃＃ 参照
 
 [1] [Playing Atari with Deep Reinforcement Learning](http://arxiv.org/abs/1312.5602)  
 [2] [Deep Reinforcement Learning: Pong from Pixels](http://karpathy.github.io/2016/05/31/rl/)  
