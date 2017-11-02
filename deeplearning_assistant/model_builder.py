@@ -7,7 +7,13 @@ from keras.layers.core import Dense, Dropout
 
 # This is abstract class. You need to implement yours.
 class AbstractModelBuilder:
+    """
+    モデル生成クラス
+    """
     def __init__(self, weights_path=None):
+        """
+        :param weights_path: 重みファイルのパス
+        """
         self.weights_path = weights_path
         self.model = None
 

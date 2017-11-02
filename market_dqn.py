@@ -65,18 +65,20 @@ if __name__ == "__main__":
     import sys
     import codecs
 
+    # 対象証券コード一覧
     codeListFilename = sys.argv[1]
+    # モデルファイル名（重みファイルのパス）
     modelFilename = sys.argv[2] if len(sys.argv) > 2 else None
 
     codeMap = {}
-    f = codecs.open(codeListFilename, "r", "utf-8")
+    codeList = codecs.open(codeListFilename, "r", "utf-8")
 
-    for line in f:
+    for line in codeList:
         if line.strip() != "":
             tokens = line.strip().split(",") if not "\t" in line else line.strip().split("\t")
             codeMap[tokens[0]] = tokens[1]
 
-    f.close()
+    codeList.close()
 
     env = MarketEnv(dir_path="./data/", target_codes=codeMap.keys(), input_codes=[], start_date="2013-08-26",
                     end_date="2015-08-25", sudden_death=-1.0)
